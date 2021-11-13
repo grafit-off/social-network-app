@@ -4,7 +4,16 @@ import styles from './css/Messages.module.css';
 
 const Messages = (props) => {
 
-	let messagesItems = props.messagesData.map(message => <MessagesItem avatar={message.avatar} message={message.message} id={message.id} key={message.id} />);
+	let messagesItems = props.messagesData
+		.map((el, i, arr) => {
+			return <MessagesItem
+				avatar={el.avatar}
+				message={el.message}
+				name={el.name}
+				id={el.id}
+				classChange={el.name === arr[0].name ? true : false}
+				key={el.id} />
+		});
 
 
 	return (

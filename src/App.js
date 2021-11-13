@@ -22,13 +22,21 @@ const App = (props) => {
 		<BrowserRouter>
 			<div className="app">
 				<Header />
-				<Aside />
+				<Aside state={props.state.aside} />
 				<main className="app__main main">
 					<Routes>
-						<Route path="/profile" element={<Profile postsData={props.postsData} />} />
-						<Route path="/messages/*" element={<Dialogs messagesData={props.messagesData} dialogsData={props.dialogsData} />} />
-						<Route path="/news" element={<News />} />
-						<Route path="/settings" element={<Settings />} />
+						<Route
+							path="/profile"
+							element={<Profile state={props.state.profilePage} />} />
+						<Route
+							path="/messages/*"
+							element={<Dialogs state={props.state.messagesPage} />} />
+						<Route
+							path="/news"
+							element={<News />} />
+						<Route
+							path="/settings"
+							element={<Settings />} />
 					</Routes>
 				</main>
 				<Footer />

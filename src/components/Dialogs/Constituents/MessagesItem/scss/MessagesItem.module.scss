@@ -1,5 +1,6 @@
 .item {
 	display: flex;
+	align-items: flex-start;
 
 	padding: 10px;
 
@@ -8,6 +9,54 @@
 	&:not(:last-child) {
 		margin-bottom: 10px;
 	}
+	&.rightSide {
+		flex-direction: row-reverse;
+		.authorInfo {
+			flex-direction: row-reverse;
+			margin: 0px 0px 0px 10px;
+		}
+		.avatar {
+			margin: 0px 0px 0px 10px;
+		}
+		.authorName {
+			position: relative;
+
+			padding: 0px 0px 0px 10px;
+			&::after {
+				right: auto;
+				left: 0;
+			}
+		}
+		.message {
+			text-align: right;
+		}
+	}
+}
+
+.authorInfo {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+
+	margin-right: 10px;
+}
+
+.authorName {
+	position: relative;
+	padding-right: 10px;
+	color: #191919;
+
+	font-size: 16px;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		right: 0;
+		width: 1px;
+		height: calc(100% + 8px);
+		background-color: #191919;
+		transform: translateY(-50%);
+	}
 }
 
 .avatar {
@@ -15,7 +64,7 @@
 	width: 40px;
 	height: 40px;
 
-	margin-right: 20px;
+	margin-right: 10px;
 
 	border-radius: 50%;
 	object-fit: cover;

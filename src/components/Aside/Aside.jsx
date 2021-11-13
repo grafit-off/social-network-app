@@ -1,13 +1,13 @@
 import React from "react";
 import styles from './css/Aside.module.css'
 
-import Nav from "../Nav/Nav";
+import Nav from "./Constituents/Nav/Nav";
 
-const Aside = () => {
+const Aside = (props) => {
 	return (
 		<aside className={`app__aside ${styles.aside}`}>
 			<div>
-				<Nav />
+				<Nav favoriteFriends={props.state.favoriteFriends} />
 			</div>
 		</aside>
 	)

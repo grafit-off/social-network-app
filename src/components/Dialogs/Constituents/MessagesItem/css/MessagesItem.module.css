@@ -2,6 +2,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 10px;
   border: 1px solid #191919;
   border-radius: 20px;
@@ -11,13 +14,78 @@
   margin-bottom: 10px;
 }
 
+.item.rightSide {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.item.rightSide .authorInfo {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  margin: 0px 0px 0px 10px;
+}
+
+.item.rightSide .avatar {
+  margin: 0px 0px 0px 10px;
+}
+
+.item.rightSide .authorName {
+  position: relative;
+  padding: 0px 0px 0px 10px;
+}
+
+.item.rightSide .authorName::after {
+  right: auto;
+  left: 0;
+}
+
+.item.rightSide .message {
+  text-align: right;
+}
+
+.authorInfo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.authorName {
+  position: relative;
+  padding-right: 10px;
+  color: #191919;
+  font-size: 16px;
+}
+
+.authorName::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: calc(100% + 8px);
+  background-color: #191919;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 .avatar {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 40px;
           flex: 0 0 40px;
   width: 40px;
   height: 40px;
-  margin-right: 20px;
+  margin-right: 10px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;

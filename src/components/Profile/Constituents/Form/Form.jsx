@@ -7,7 +7,12 @@ const Form = () => {
 			<label htmlFor="post-message " className='visually-hidden'>
 				Введите текст поста
 			</label>
-			<textarea id="post-message" name="post-message" required placeholder="Введите ваше сообщение" className={`${styles.textarea} input-reset`}></textarea>
+			<textarea
+				id="post-message"
+				name="post-message"
+				required
+				placeholder="Введите ваше сообщение"
+				className={`${styles.textarea} input-reset`}></textarea>
 			<button className={`${styles.button} btn-reset`}>Отправить</button>
 		</form>
 	)

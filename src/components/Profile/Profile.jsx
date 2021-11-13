@@ -10,11 +10,12 @@ const Profile = (props) => {
 		<div>
 			<section >
 				<div className={styles.container}>
-					<Cover cover="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461262-reactJS-Facebook-JavaScript-minimalism-simple_background.jpg" />
+					<Cover
+						cover="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461262-reactJS-Facebook-JavaScript-minimalism-simple_background.jpg" />
 					<ProfileInfo />
 				</div>
 			</section>
-			<Posts postsData={props.postsData} />
+			<Posts postsData={props.state.postsData} />
 		</div>
 
 	)
