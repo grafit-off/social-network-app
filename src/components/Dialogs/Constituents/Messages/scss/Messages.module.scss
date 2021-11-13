@@ -5,31 +5,3 @@
 	background-color: #e5e5e5;
 	border-radius: 20px;
 }
-
-.item {
-	display: flex;
-
-	padding: 10px;
-
-	border: 1px solid #191919;
-	border-radius: 20px;
-	&:not(:last-child) {
-		margin-bottom: 10px;
-	}
-}
-
-.avatar {
-	flex: 0 0 40px;
-	width: 40px;
-	height: 40px;
-
-	margin-right: 20px;
-
-	border-radius: 50%;
-	object-fit: cover;
-}
-
-.message {
-	align-self: center;
-	color: #191919;
-}

@@ -11,7 +11,3 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-
-.item:not(:last-child) {
-  margin-bottom: 20px;
-}
