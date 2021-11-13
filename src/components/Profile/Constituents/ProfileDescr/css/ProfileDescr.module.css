@@ -1,0 +1,20 @@
+.descr {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+}
+
+.name {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.text:not(:last-child) {
+  margin-bottom: 10px;
+}

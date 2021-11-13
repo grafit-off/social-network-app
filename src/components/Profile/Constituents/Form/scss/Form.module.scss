@@ -1,0 +1,71 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.textarea {
+	width: 100%;
+	height: 100px;
+
+	margin-bottom: 20px;
+	padding: 20px;
+
+	border: 1px solid #959595;
+	border-radius: 20px;
+
+	resize: none;
+	transition: box-shadow 0.3s ease;
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 20px;
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus-visible {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 20px;
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: 0;
+		box-shadow: none;
+		border-radius: 20px;
+	}
+}
+
+.button {
+	display: block;
+	align-self: flex-start;
+	padding: 10px 20px;
+
+	border-radius: 10px;
+	border: 1px solid #959595;
+	background-color: #fff;
+	color: #000;
+
+	transition: box-shadow 0.3s ease;
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 10px;
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus-visible {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 10px;
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: 0;
+		box-shadow: none;
+		border-radius: 10px;
+	}
+}

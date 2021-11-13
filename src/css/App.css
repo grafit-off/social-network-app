@@ -42,29 +42,3 @@ body {
   grid-column: span 12;
   grid-row: span 1;
 }
-
-.nav__item:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.nav__item--settings {
-  margin-top: 40px;
-}
-
-.nav__link {
-  border-bottom: 1px solid currentColor;
-  font-size: 20px;
-}
-
-.posts {
-  padding: 20px;
-  background-color: #e5e5e5;
-  border-radius: 20px;
-  color: #191919;
-}
-
-.posts__heading {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-}

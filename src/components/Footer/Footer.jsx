@@ -1,11 +1,11 @@
 import React from "react";
-import './css/Footer.css'
+import styles from './css/Footer.module.css'
 
-function Footer() {
+const Footer = () => {
 	return (
-		<footer className="app__footer footer">
-			<div className="footer__container ">
-				<small className="footer__copy">
+		<footer className={`app__footer ${styles.footer}`}>
+			<div className={styles.container}>
+				<small className={styles.copy}>
 					Copyright, 2021
 				</small>
 			</div>

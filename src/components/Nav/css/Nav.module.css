@@ -1,0 +1,19 @@
+.item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.settings {
+  margin-top: 40px;
+}
+
+.link {
+  font-size: 20px;
+  -webkit-transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.3s ease;
+}
+
+.active {
+  border-bottom: 1px solid #fff;
+  -webkit-transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.3s ease;
+}

@@ -1,0 +1,16 @@
+.descr {
+	flex: 0 0 75%;
+}
+.name {
+	margin-bottom: 20px;
+
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.text {
+	font-size: 18px;
+	&:not(:last-child) {
+		margin-bottom: 10px;
+	}
+}

@@ -1,0 +1,40 @@
+.messages {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 70%;
+	flex: 0 0 70%;
+	padding: 20px;
+	background-color: #e5e5e5;
+	border-radius: 20px;
+}
+
+.item {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 10px;
+	border: 1px solid #191919;
+	border-radius: 20px;
+}
+
+.item:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.avatar {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 40px;
+	flex: 0 0 40px;
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+	border-radius: 50%;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.message {
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+	align-self: center;
+	color: #191919;
+}
