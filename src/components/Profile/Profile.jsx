@@ -5,7 +5,7 @@ import Posts from './Constituents/Posts/Posts';
 
 import styles from './css/Profile.module.css'
 
-const Profile = () => {
+const Profile = (props) => {
 	return (
 		<div>
 			<section >
@@ -14,7 +14,7 @@ const Profile = () => {
 					<ProfileInfo />
 				</div>
 			</section>
-			<Posts />
+			<Posts postsData={props.postsData} />
 		</div>
 
 	)

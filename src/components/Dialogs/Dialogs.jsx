@@ -9,8 +9,8 @@ const Dialogs = (props) => {
 			<div className={styles.container}>
 				<h1 className={styles.heading + " text-reset"}>Сообщения</h1>
 				<div className={styles.row}>
-					<DialogsList />
-					<Messages />
+					<DialogsList dialogsData={props.dialogsData} />
+					<Messages messagesData={props.messagesData} />
 				</div>
 			</div>
 		</section>
