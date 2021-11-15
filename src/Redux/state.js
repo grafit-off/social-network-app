@@ -1,3 +1,4 @@
+let rerenderEntireTree = () => { console.log('State was changed') }
 let state = {
 	messagesPage: {
 		dialogsData: [{
@@ -42,7 +43,8 @@ let state = {
 			name: 'Николай Чёрный',
 			message: 'Круто! Жду новых видео)',
 			avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
-		}]
+		}],
+		newMassageText: ''
 	},
 	profilePage: {
 		postsData: [{
@@ -57,7 +59,9 @@ let state = {
 			id: 3,
 			text: '3 saasd sad',
 			likes: 57
-		}]
+		}],
+		newPostText: '',
+
 	},
 	aside: {
 		favoriteFriends: [{
@@ -75,6 +79,42 @@ let state = {
 		},
 		]
 	}
+}
+
+export let addPost = () => {
+	let newPost = {
+		id: 4,
+		text: state.profilePage.newPostText,
+		likes: 0
+	};
+
+	state.profilePage.postsData.push(newPost);
+	state.profilePage.newPostText = '';
+	rerenderEntireTree(state);
+}
+
+export let updatePostText = (newText) => {
+	state.profilePage.newPostText = newText;
+	rerenderEntireTree(state);
+}
+
+export let addMessage = () => {
+	let newMessage = {
+		id: 6,
+		name: 'Николай Чёрный',
+		message: state.messagesPage.newMassageText,
+		avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
+	};
+
+	state.messagesPage.messagesData.push(newMessage);
+	state.messagesPage.newMassageText = '';
+	rerenderEntireTree(state);
+}
+
+
+export let updateMessageText = (newText) => {
+	state.messagesPage.newMassageText = newText;
+	rerenderEntireTree(state);
 }
 
 

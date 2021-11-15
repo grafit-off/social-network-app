@@ -1,8 +1,9 @@
 import React from "react";
+import MessageForm from "../MessageForm/MessageForm";
 import MessagesItem from "../MessagesItem/MessagesItem";
-import styles from './css/Messages.module.css';
+import styles from './css/MessagesBlock.module.css';
 
-const Messages = (props) => {
+const MessagesBlock = (props) => {
 
 	let messagesItems = props.messagesData
 		.map((el, i, arr) => {
@@ -21,8 +22,12 @@ const Messages = (props) => {
 			<ul className={styles.list + ' list-reset'}>
 				{messagesItems}
 			</ul>
+			<MessageForm
+				addMessage={props.addMessage}
+				newMassageText={props.newMassageText}
+				updateMessageText={props.updateMessageText} />
 		</div>
 	)
 };
 
-export default Messages;
+export default MessagesBlock;

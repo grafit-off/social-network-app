@@ -14,7 +14,7 @@ const Posts = (props) => {
 				<h2 className={`${styles.heading} text-reset`}>
 					My posts
 				</h2>
-				<Form />
+				<Form addPost={props.addPost} newPostText={props.newPostText} updatePostText={props.updatePostText} />
 				<ul className="list-reset">
 					{postItems}
 				</ul>

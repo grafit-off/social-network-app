@@ -1,19 +1,37 @@
 import React from "react";
 import styles from './css/Form.module.css'
 
-const Form = () => {
+const Form = (props) => {
+	let textarea = React.createRef();
+
+	let addPost = () => {
+		props.addPost();
+	};
+
+	let onTextareaChange = () => {
+		props.updatePostText(textarea.current.value);
+	};
+
 	return (
-		<form action="/" className={styles.form}>
+		<form className={styles.form}>
 			<label htmlFor="post-message " className='visually-hidden'>
 				Введите текст поста
 			</label>
 			<textarea
+				ref={textarea}
 				id="post-message"
 				name="post-message"
+				onChange={onTextareaChange}
+				value={props.newPostText}
 				required
 				placeholder="Введите ваше сообщение"
-				className={`${styles.textarea} input-reset`}></textarea>
-			<button className={`${styles.button} btn-reset`}>Отправить</button>
+				className={`${styles.textarea} input-reset`} ></textarea>
+			<button
+				type="button"
+				className={`${styles.button} btn-reset`}
+				onClick={addPost} >
+				Отправить
+			</button>
 		</form>
 	)
 }
