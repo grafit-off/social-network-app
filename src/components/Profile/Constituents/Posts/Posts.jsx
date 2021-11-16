@@ -15,8 +15,7 @@ const Posts = (props) => {
 					My posts
 				</h2>
 				<Form
-					addPost={props.addPost}
-					updatePostText={props.updatePostText}
+					dispatch={props.dispatch}
 					newPostText={props.newPostText}
 				/>
 				<ul className="list-reset">

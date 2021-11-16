@@ -92,38 +92,45 @@ let store = {
 		return this._state;
 	},
 
-	addPost() {
-		let newPost = {
-			id: 4,
-			text: this._state.profilePage.newPostText,
-			likes: 0
-		};
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
 
-		this._state.profilePage.postsData.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this._callObserver(this._state);
-	},
+			let newPost = {
+				id: 4,
+				text: this._state.profilePage.newPostText,
+				likes: 0
+			};
 
-	updatePostText(newText) {
-		this._state.profilePage.newPostText = newText;
-		this._callObserver(this._state);
-	},
+			this._state.profilePage.postsData.push(newPost);
+			this._state.profilePage.newPostText = '';
+			this._callObserver(this._state);
 
-	addMessage() {
-		let newMessage = {
-			id: 6,
-			name: 'Николай Чёрный',
-			message: this._state.messagesPage.newMassageText,
-			avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
-		};
-		this._state.messagesPage.messagesData.push(newMessage);
-		this._state.messagesPage.newMassageText = '';
-		this._callObserver(this._state);
-	},
+		} else if (action.type === "UPDATE-POST-AREA-TEXT") {
 
-	updateMessageText(newText) {
-		this._state.messagesPage.newMassageText = newText;
-		this._callObserver(this._state);
+			this._state.profilePage.newPostText = action.newText;
+			this._callObserver(this._state);
+
+		} else if (action.type === "ADD-MESSAGE") {
+
+			let newMessage = {
+				id: 6,
+				name: 'Николай Чёрный',
+				message: this._state.messagesPage.newMassageText,
+				avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
+			};
+
+			this._state.messagesPage.messagesData.push(newMessage);
+			this._state.messagesPage.newMassageText = '';
+			this._callObserver(this._state);
+
+		} else if (action.type === "UPDATE-MESSAGE-AREA-TEXT") {
+
+			this._state.messagesPage.newMassageText = action.newText;
+			this._callObserver(this._state);
+
+		} else {
+			throw Error(`Type of action is invalid \nAction type: ${action.type}`)
+		}
 	}
 };
 

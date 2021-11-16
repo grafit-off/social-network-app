@@ -6,11 +6,11 @@ const MessageForm = (props) => {
 	let textarea = React.createRef();
 
 	let sendMessage = () => {
-		props.addMessage();
+		props.dispatch({ type: 'ADD-MESSAGE' });
 	}
 
 	let onTextareaChange = () => {
-		props.updateMessageText(textarea.current.value);
+		props.dispatch({ type: 'UPDATE-MESSAGE-AREA-TEXT', newText: textarea.current.value });
 	}
 
 	return (
