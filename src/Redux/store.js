@@ -1,10 +1,10 @@
 let store = {
-	_subscriber() {
+	_callObserver() {
 		console.log('No observers is subscribe!');
 	},
 
 	subscribe(observer) {
-		this._subscriber = observer;
+		this._callObserver = observer;
 	},
 
 	_state: {
@@ -69,7 +69,6 @@ let store = {
 				likes: 57
 			}],
 			newPostText: '',
-
 		},
 		aside: {
 			favoriteFriends: [{
@@ -90,7 +89,7 @@ let store = {
 	},
 
 	getState() {
-		return this.state;
+		return this._state;
 	},
 
 	addPost() {
@@ -100,14 +99,14 @@ let store = {
 			likes: 0
 		};
 
-		this.state.profilePage.postsData.push(newPost);
-		this.state.profilePage.newPostText = '';
-		this._subscriber();
+		this._state.profilePage.postsData.push(newPost);
+		this._state.profilePage.newPostText = '';
+		this._callObserver();
 	},
 
 	updatePostText(newText) {
 		this._state.profilePage.newPostText = newText;
-		this._subscriber();
+		this._callObserver();
 	},
 
 	addMessage() {
@@ -119,17 +118,16 @@ let store = {
 		};
 		this._state.messagesPage.messagesData.push(newMessage);
 		this._state.messagesPage.newMassageText = '';
-		this._subscriber();
+		this._callObserver();
 	},
 
 	updateMessageText(newText) {
 		this._state.messagesPage.newMassageText = newText;
-		this._subscriber();
+		this._callObserver();
 	}
 };
 
 export default store;
-
 
 /*
 let rerenderEntireTree = () => { };

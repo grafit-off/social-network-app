@@ -5,11 +5,11 @@ const Form = (props) => {
 	let textarea = React.createRef();
 
 	let addPost = () => {
-		props.addPost();
+		props.store.addPost();
 	};
 
 	let onTextareaChange = () => {
-		props.updatePostText(textarea.current.value);
+		props.store.updatePostText(textarea.current.value);
 	};
 
 	return (
