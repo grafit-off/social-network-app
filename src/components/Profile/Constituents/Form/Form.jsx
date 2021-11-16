@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './css/Form.module.css';
-import { addPostActionCreater, updatePostAreaActionCreater } from '../../../../Redux/store';
+import { addPostActionCreater, updatePostAreaActionCreater } from '../../../../Redux/reducers/profile-reducer';
 
 const Form = (props) => {
 	let textarea = React.createRef();

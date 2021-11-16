@@ -2,12 +2,6 @@ import profileReducer from './reducers/profile-reducer';
 import messagesReducer from './reducers/messages-reducer';
 import asideReducer from './reducers/aside-reducer';
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_AREA_TEXT = 'UPDATE-POST-AREA-TEXT';
-
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_AREA_TEXT = 'UPDATE-MESSAGE-AREA-TEXT';
-
 let store = {
 	_callObserver() {
 		console.log('No observers is subscribe!');
@@ -110,12 +104,5 @@ let store = {
 		this._callObserver(this._state);
 	}
 };
-
-export const addPostActionCreater = () => ({ type: ADD_POST });
-export const updatePostAreaActionCreater = (text) => ({ type: UPDATE_POST_AREA_TEXT, newText: text });
-
-export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
-export const updataMessageAreaTextActionCreator = (text) => ({ type: UPDATE_MESSAGE_AREA_TEXT, newText: text });
-
 
 export default store;

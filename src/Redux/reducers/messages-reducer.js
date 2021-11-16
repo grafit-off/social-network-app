@@ -24,4 +24,10 @@ const messagesReducer = (state, action) => {
 	}
 };
 
+
+export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
+export const updataMessageAreaTextActionCreator = (text) => ({ type: UPDATE_MESSAGE_AREA_TEXT, newText: text });
+
+
+
 export default messagesReducer;

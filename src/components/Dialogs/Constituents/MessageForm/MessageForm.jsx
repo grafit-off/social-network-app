@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './css/MessageForm.module.css';
-import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/store';
+import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/reducers/messages-reducer';
 
 const MessageForm = (props) => {
 	const textarea = React.createRef();
