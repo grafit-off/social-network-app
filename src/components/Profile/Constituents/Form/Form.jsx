@@ -1,15 +1,16 @@
 import React from "react";
-import styles from './css/Form.module.css'
+import styles from './css/Form.module.css';
+import { addPostActionCreater, updatePostAreaActionCreater } from '../../../../Redux/store';
 
 const Form = (props) => {
 	let textarea = React.createRef();
 
 	let addPost = () => {
-		props.dispatch({ type: 'ADD-POST' });
+		props.dispatch(addPostActionCreater());
 	};
 
 	let onTextareaChange = () => {
-		props.dispatch({ type: 'UPDATE-POST-AREA-TEXT', newText: textarea.current.value });
+		props.dispatch(updatePostAreaActionCreater(textarea.current.value));
 	};
 
 	return (

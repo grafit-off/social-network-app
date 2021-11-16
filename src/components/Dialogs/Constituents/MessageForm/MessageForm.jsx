@@ -1,16 +1,14 @@
 import React from "react";
 import styles from './css/MessageForm.module.css';
+import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/store';
 
 const MessageForm = (props) => {
+	const textarea = React.createRef();
 
-	let textarea = React.createRef();
+	const sendMessage = () => props.dispatch(addMessageActionCreater());
 
-	let sendMessage = () => {
-		props.dispatch({ type: 'ADD-MESSAGE' });
-	}
-
-	let onTextareaChange = () => {
-		props.dispatch({ type: 'UPDATE-MESSAGE-AREA-TEXT', newText: textarea.current.value });
+	const onTextareaChange = () => {
+		props.dispatch(updataMessageAreaTextActionCreator(textarea.current.value));
 	}
 
 	return (

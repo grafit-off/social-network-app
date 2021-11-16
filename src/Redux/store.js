@@ -1,3 +1,9 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_AREA_TEXT = 'UPDATE-POST-AREA-TEXT';
+
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE_AREA_TEXT = 'UPDATE-MESSAGE-AREA-TEXT';
+
 let store = {
 	_callObserver() {
 		console.log('No observers is subscribe!');
@@ -93,7 +99,7 @@ let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 
 			let newPost = {
 				id: 4,
@@ -105,12 +111,12 @@ let store = {
 			this._state.profilePage.newPostText = '';
 			this._callObserver(this._state);
 
-		} else if (action.type === "UPDATE-POST-AREA-TEXT") {
+		} else if (action.type === UPDATE_POST_AREA_TEXT) {
 
 			this._state.profilePage.newPostText = action.newText;
 			this._callObserver(this._state);
 
-		} else if (action.type === "ADD-MESSAGE") {
+		} else if (action.type === ADD_MESSAGE) {
 
 			let newMessage = {
 				id: 6,
@@ -123,7 +129,7 @@ let store = {
 			this._state.messagesPage.newMassageText = '';
 			this._callObserver(this._state);
 
-		} else if (action.type === "UPDATE-MESSAGE-AREA-TEXT") {
+		} else if (action.type === UPDATE_MESSAGE_AREA_TEXT) {
 
 			this._state.messagesPage.newMassageText = action.newText;
 			this._callObserver(this._state);
@@ -133,5 +139,12 @@ let store = {
 		}
 	}
 };
+
+export const addPostActionCreater = () => ({ type: ADD_POST });
+export const updatePostAreaActionCreater = (text) => ({ type: UPDATE_POST_AREA_TEXT, newText: text });
+
+export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
+export const updataMessageAreaTextActionCreator = (text) => ({ type: UPDATE_MESSAGE_AREA_TEXT, newText: text });
+
 
 export default store;
