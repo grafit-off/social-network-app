@@ -23,7 +23,8 @@ const MessagesBlock = (props) => {
 				{messagesItems}
 			</ul>
 			<MessageForm
-				store={props.store}
+				addMessage={props.addMessage}
+				updateMessageText={props.updateMessageText}
 				newMassageText={props.newMassageText} />
 		</div>
 	)

@@ -5,15 +5,21 @@ import store from './Redux/store';
 
 import reportWebVitals from './reportWebVitals';
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
 	ReactDOM.render(
 		<React.StrictMode>
-			<App state={store.getState()} store={store} />
+			<App state={state}
+
+				addPost={store.addPost.bind(store)}
+				updatePostText={store.updatePostText.bind(store)}
+
+				addMessage={store.addMessage.bind(store)}
+				updateMessageText={store.updateMessageText.bind(store)} />
 		</React.StrictMode>,
 		document.getElementById('root')
 	);
 }
-rerenderEntireTree();
+rerenderEntireTree(store.getState());
 store.subscribe(rerenderEntireTree);
 
 reportWebVitals();
