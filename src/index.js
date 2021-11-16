@@ -1,12 +1,9 @@
-import state from './Redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import state, { addPost, updatePostText, addMessage, updateMessageText, subscribe } from './Redux/state';
+
 import reportWebVitals from './reportWebVitals';
-import { addPost } from './Redux/state';
-import { updatePostText } from './Redux/state';
-import { addMessage } from './Redux/state';
-import { updateMessageText } from './Redux/state';
 
 
 let rerenderEntireTree = (state) => {
@@ -22,7 +19,7 @@ let rerenderEntireTree = (state) => {
 	);
 }
 rerenderEntireTree(state);
-
+subscribe(rerenderEntireTree)
 reportWebVitals();
 
 

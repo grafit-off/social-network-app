@@ -43,7 +43,6 @@ const Nav = (props) => {
 						Настройки
 					</NavLink>
 				</li>
-
 			</ul>
 		</nav >
 	)
