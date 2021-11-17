@@ -49,6 +49,7 @@ const initialState = {
 };
 
 const messagesReducer = (state = initialState, action) => {
+
 	switch (action.type) {
 		case ADD_MESSAGE:
 			let newMessage = {
@@ -64,6 +65,7 @@ const messagesReducer = (state = initialState, action) => {
 
 		case UPDATE_MESSAGE_AREA_TEXT:
 			state.newMassageText = action.newText;
+			debugger;
 			return state;
 
 		default:

@@ -1,9 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/reducers/messages-reducer';
-import StoreContext from "../../../../StoreContext";
 import MessageForm from "./MessageForm";
 
-const MessageFormContainer = (props) => {
+const mapStateToProps = (state) => {
+	return {
+		newMessageText: state.messagesPage.newMassageText
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		sendMessage: () => { dispatch(addMessageActionCreater()) },
+		onTextareaChange: (text) => { dispatch(updataMessageAreaTextActionCreator(text)) }
+	}
+}
+
+const MessageFormContainer = connect(mapStateToProps, mapDispatchToProps)(MessageForm);
+
+export default MessageFormContainer;
+
+
+/* const MessageFormContainer = (props) => {
 	return <StoreContext.Consumer>
 		{
 			(store) => {
@@ -20,6 +38,4 @@ const MessageFormContainer = (props) => {
 			}
 		}
 	</StoreContext.Consumer>
-};
-
-export default MessageFormContainer;
+}; */
