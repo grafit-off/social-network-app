@@ -15,7 +15,7 @@ const Profile = (props) => {
 					<ProfileInfo />
 				</div>
 			</section>
-			<Posts postsData={props.state.postsData} store={props.store} />
+			<Posts postsData={props.state.postsData} />
 		</div>
 
 	)

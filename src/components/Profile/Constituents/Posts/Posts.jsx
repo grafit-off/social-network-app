@@ -11,7 +11,7 @@ const Posts = (props) => {
 				<h2 className={`${styles.heading} text-reset`}>
 					My posts
 				</h2>
-				<FormContainer store={props.store} />
+				<FormContainer />
 				<ul className="list-reset">
 					{postItems}
 				</ul>
