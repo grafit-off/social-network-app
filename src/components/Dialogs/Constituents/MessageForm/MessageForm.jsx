@@ -1,16 +1,12 @@
 import React from "react";
 import styles from './css/MessageForm.module.css';
-import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/reducers/messages-reducer';
 
 const MessageForm = (props) => {
 	const textarea = React.createRef();
 
-	const sendMessage = () => props.dispatch(addMessageActionCreater());
+	const sendMessage = () => props.sendMessage();
 
-	const onTextareaChange = () => {
-		props.dispatch(updataMessageAreaTextActionCreator(textarea.current.value));
-	}
-
+	const onTextareaChange = () => props.onTextareaChange(textarea.current.value);
 	return (
 		<form className={styles.form}>
 			<label htmlFor="dialog-message" className='visually-hidden'>
@@ -22,7 +18,7 @@ const MessageForm = (props) => {
 				name="dialog-message"
 				required
 				onChange={onTextareaChange}
-				value={props.newMassageText}
+				value={props.newMessageText}
 				placeholder="Введите ваше сообщение"
 				className={`${styles.textarea} input-reset`}></textarea>
 			<button

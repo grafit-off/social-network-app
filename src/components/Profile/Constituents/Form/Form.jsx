@@ -1,17 +1,14 @@
 import React from "react";
 import styles from './css/Form.module.css';
-import { addPostActionCreater, updatePostAreaActionCreater } from '../../../../Redux/reducers/profile-reducer';
 
 const Form = (props) => {
 	let textarea = React.createRef();
-
-	let addPost = () => {
-		props.dispatch(addPostActionCreater());
-	};
-
+	let onAddPost = () => {
+		props.addPost();
+	}
 	let onTextareaChange = () => {
-		props.dispatch(updatePostAreaActionCreater(textarea.current.value));
-	};
+		props.onTextareaChange(textarea.current.value);
+	}
 
 	return (
 		<form className={styles.form}>
@@ -30,7 +27,7 @@ const Form = (props) => {
 			<button
 				type="button"
 				className={`${styles.button} btn-reset`}
-				onClick={addPost} >
+				onClick={onAddPost} >
 				Отправить
 			</button>
 		</form>
