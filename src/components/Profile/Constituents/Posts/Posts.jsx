@@ -1,5 +1,5 @@
 import React from "react";
-import FormContainer from "../Form/FormContainer";
+import Form from "../Form/Form";
 import Post from "../Post/Post";
 import styles from './css/Posts.module.css'
 
@@ -11,7 +11,7 @@ const Posts = (props) => {
 				<h2 className={`${styles.heading} text-reset`}>
 					My posts
 				</h2>
-				<FormContainer />
+				<Form onTextareaChange={props.onTextareaChange} addPost={props.addPost} newPostText={props.newPostText} />
 				<ul className="list-reset">
 					{postItems}
 				</ul>

@@ -36,6 +36,13 @@ const Nav = (props) => {
 					</NavLink>
 					<FavoriteFriends favoriteFriends={props.favoriteFriends} />
 				</li>
+				<li className={`${styles.item} `}>
+					<NavLink
+						to="/users"
+						className={navData => `${styles.link} link-reset ` + (navData.isActive ? styles.active : '')}>
+						Пользователи
+					</NavLink>
+				</li>
 				<li className={`${styles.item} ${styles.settings}`}>
 					<NavLink
 						to="/settings"

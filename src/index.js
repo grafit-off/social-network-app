@@ -10,9 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<React.StrictMode>
-			<App state={store.getState()} />
-		</React.StrictMode>
+		<App state={store.getState()} />
 	</Provider>,
 	document.getElementById('root')
 );

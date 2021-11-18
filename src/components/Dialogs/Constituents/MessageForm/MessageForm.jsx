@@ -22,7 +22,6 @@ const MessageForm = (props) => {
 				placeholder="Введите ваше сообщение"
 				className={`${styles.textarea} input-reset`}></textarea>
 			<button
-				type="button"
 				className={`${styles.button} btn-reset`}
 				onClick={sendMessage} >
 				Отправить

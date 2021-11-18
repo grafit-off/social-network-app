@@ -58,17 +58,18 @@ const messagesReducer = (state = initialState, action) => {
 				message: state.newMassageText,
 				avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
 			};
-			let stateCopy = { ...state };
-			stateCopy.messagesData = [...state.messagesData];
-			stateCopy.messagesData.push(newMessage);
-			stateCopy.newMassageText = '';
-			return stateCopy;
+			return {
+				...state,
+				messagesData: [...state.messagesData, newMessage],
+				newMassageText: ''
+			};
 		}
 
 		case UPDATE_MESSAGE_AREA_TEXT: {
-			let stateCopy = { ...state };
-			stateCopy.newMassageText = action.newText;
-			return stateCopy;
+			return {
+				...state,
+				newMassageText: action.newText
+			}
 		}
 
 		default:

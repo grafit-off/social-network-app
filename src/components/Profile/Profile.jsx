@@ -1,7 +1,7 @@
 import React from "react";
 import Cover from "./Constituents/Cover/Cover";
 import ProfileInfo from "./Constituents/ProfileInfo/ProfileInfo";
-import Posts from './Constituents/Posts/Posts';
+import PostsContainer from './Constituents/Posts/PostsContainer';
 
 import styles from './css/Profile.module.css'
 
@@ -15,7 +15,7 @@ const Profile = (props) => {
 					<ProfileInfo />
 				</div>
 			</section>
-			<Posts postsData={props.state.postsData} />
+			<PostsContainer />
 		</div>
 
 	)

@@ -15,6 +15,7 @@ import Footer from './components/Footer/Footer';
 import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 const App = (props) => {
@@ -27,10 +28,13 @@ const App = (props) => {
 					<Routes>
 						<Route
 							path="/profile"
-							element={<Profile state={props.state.profilePage} />} />
+							element={<Profile />} />
 						<Route
 							path="/messages/*"
 							element={<Dialogs state={props.state.messagesPage} />} />
+						<Route
+							path="/users/*"
+							element={<UsersContainer />} />
 						<Route
 							path="/news"
 							element={<News />} />
