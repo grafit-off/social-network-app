@@ -1,5 +1,5 @@
 import React from "react";
-import MessageFormContainer from "../MessageForm/MessageFormContainer";
+import MessageForm from "../MessageForm/MessageForm";
 import MessagesItem from "../MessagesItem/MessagesItem";
 import styles from './css/MessagesBlock.module.css';
 
@@ -22,7 +22,7 @@ const MessagesBlock = (props) => {
 			<ul className={styles.list + ' list-reset'}>
 				{messagesItems}
 			</ul>
-			<MessageFormContainer />
+			<MessageForm newMessageText={props.newMessageText} sendMessage={props.sendMessage} onTextareaChange={props.onTextareaChange} />
 		</div>
 	)
 };

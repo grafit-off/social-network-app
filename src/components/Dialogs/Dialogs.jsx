@@ -1,6 +1,6 @@
 import React from "react";
 import DialogsList from "./Constituents/DialogsList/DialogsList";
-import Messages from "./Constituents/MessagesBlock/MessagesBlock";
+import MessagesBlockContainer from "./Constituents/MessagesBlock/MessagesBlockContainer";
 import styles from './css/Dialogs.module.css';
 
 const Dialogs = (props) => {
@@ -10,7 +10,7 @@ const Dialogs = (props) => {
 				<h1 className={styles.heading + " text-reset"}>Сообщения</h1>
 				<div className={styles.row}>
 					<DialogsList dialogsData={props.state.dialogsData} />
-					<Messages messagesData={props.state.messagesData} />
+					<MessagesBlockContainer />
 				</div>
 			</div>
 		</section>
