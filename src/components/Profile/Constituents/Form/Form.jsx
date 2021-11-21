@@ -6,8 +6,8 @@ const Form = (props) => {
 	let onAddPost = () => {
 		props.addPost();
 	}
-	let onTextareaChange = () => {
-		props.onTextareaChange(textarea.current.value);
+	let updatePostArea = () => {
+		props.updatePostArea(textarea.current.value);
 	}
 
 	return (
@@ -19,7 +19,7 @@ const Form = (props) => {
 				ref={textarea}
 				id="post-message"
 				name="post-message"
-				onChange={onTextareaChange}
+				onChange={updatePostArea}
 				value={props.newPostText}
 				required
 				placeholder="Введите ваше сообщение"

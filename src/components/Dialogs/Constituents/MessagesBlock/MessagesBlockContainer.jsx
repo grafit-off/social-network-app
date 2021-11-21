@@ -1,6 +1,6 @@
 import React from "react";
 import MessagesBlock from "./MessagesBlock";
-import { addMessageActionCreater, updataMessageAreaTextActionCreator } from '../../../../Redux/reducers/messages-reducer';
+import { addMessage, updataMessageAreaText } from '../../../../Redux/reducers/messages-reducer';
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -10,13 +10,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		sendMessage: () => { dispatch(addMessageActionCreater()) },
-		onTextareaChange: (text) => { dispatch(updataMessageAreaTextActionCreator(text)) }
-	}
-}
-
-const MessagesBlockContainer = connect(mapStateToProps, mapDispatchToProps)(MessagesBlock);
+const MessagesBlockContainer = connect(mapStateToProps, { addMessage, updataMessageAreaText })(MessagesBlock);
 
 export default MessagesBlockContainer;

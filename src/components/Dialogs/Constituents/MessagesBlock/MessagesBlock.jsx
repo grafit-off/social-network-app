@@ -4,7 +4,6 @@ import MessagesItem from "../MessagesItem/MessagesItem";
 import styles from './css/MessagesBlock.module.css';
 
 const MessagesBlock = (props) => {
-
 	let messagesItems = props.messagesData
 		.map((el, i, arr) => {
 			return <MessagesItem
@@ -22,7 +21,7 @@ const MessagesBlock = (props) => {
 			<ul className={styles.list + ' list-reset'}>
 				{messagesItems}
 			</ul>
-			<MessageForm newMessageText={props.newMessageText} sendMessage={props.sendMessage} onTextareaChange={props.onTextareaChange} />
+			<MessageForm newMessageText={props.newMessageText} addMessage={props.addMessage} updataMessageAreaText={props.updataMessageAreaText} />
 		</div>
 	)
 };

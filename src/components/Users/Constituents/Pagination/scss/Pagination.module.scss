@@ -1,0 +1,29 @@
+.pagination {
+	margin-bottom: 20px;
+	padding: 20px 0;
+	border-bottom: 1px solid #fff;
+}
+.list {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.item {
+	&:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+.btn {
+	padding: 5px 8px;
+	color: #fff;
+	border: 1px solid #a4a4a4;
+	transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.active {
+	background-color: #e5e5e5;
+	color: #000;
+
+	transition: color 0.3s ease, background-color 0.3s ease;
+}

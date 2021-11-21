@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from './css/User.module.css';
 
 const User = (props) => {
@@ -8,8 +9,8 @@ const User = (props) => {
 		<li className={styles.item} >
 			<div className={styles.promo}>
 				<img
-					src={props.avatar}
-					alt={'Аватарка пользователя ' + props.name}
+					src={props.avatar !== null ? props.avatar : 'https://image.flaticon.com/icons/png/512/236/236831.png'}
+					alt={'Аватарка пользователя ' + props.userName}
 					className={styles.img} />
 				{
 					props.followed ?
@@ -25,7 +26,9 @@ const User = (props) => {
 				<span className={styles.name}>{props.userName}</span>
 				<span className={styles.location}>{props.location}</span>
 				<p className={styles.status + ' text-reset'}>{props.status}</p>
+				<NavLink to={'/profile/' + props.id} className={styles.userLink} aria-label={"Перейти к пользователю " + props.userName}></NavLink>
 			</div>
+
 		</li>
 	)
 }

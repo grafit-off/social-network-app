@@ -1,0 +1,21 @@
+.loadingIcon {
+	position: absolute;
+	top: 50px;
+	right: 0;
+
+	width: 100px;
+	height: 100px;
+
+	:global {
+		animation: 3s linear infinite rotate;
+	}
+}
+
+@keyframes :global(rotate) {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}

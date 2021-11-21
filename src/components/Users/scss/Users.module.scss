@@ -1,10 +1,18 @@
+.section {
+	height: 100%;
+}
 .container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
 .heading {
 	margin-bottom: 40px;
 	color: #fff;
 	font-size: 36px;
+}
+
+.list {
 }

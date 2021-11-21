@@ -16,6 +16,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 const App = (props) => {
@@ -27,8 +28,8 @@ const App = (props) => {
 				<main className="app__main main">
 					<Routes>
 						<Route
-							path="/profile"
-							element={<Profile />} />
+							path="/profile/*"
+							element={<ProfileContainer />} />
 						<Route
 							path="/messages/*"
 							element={<Dialogs state={props.state.messagesPage} />} />

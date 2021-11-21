@@ -4,9 +4,9 @@ import styles from './css/MessageForm.module.css';
 const MessageForm = (props) => {
 	const textarea = React.createRef();
 
-	const sendMessage = () => props.sendMessage();
+	const addMessage = () => props.addMessage();
 
-	const onTextareaChange = () => props.onTextareaChange(textarea.current.value);
+	const updataMessageAreaText = () => props.updataMessageAreaText(textarea.current.value);
 	return (
 		<form className={styles.form}>
 			<label htmlFor="dialog-message" className='visually-hidden'>
@@ -17,13 +17,13 @@ const MessageForm = (props) => {
 				id="dialog-message"
 				name="dialog-message"
 				required
-				onChange={onTextareaChange}
+				onChange={updataMessageAreaText}
 				value={props.newMessageText}
 				placeholder="Введите ваше сообщение"
 				className={`${styles.textarea} input-reset`}></textarea>
 			<button
 				className={`${styles.button} btn-reset`}
-				onClick={sendMessage} >
+				onClick={addMessage} >
 				Отправить
 			</button>
 		</form>
