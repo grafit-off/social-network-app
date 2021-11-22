@@ -1,4 +1,5 @@
 .item {
+	position: relative;
 	display: flex;
 	align-items: flex-start;
 	&:not(:last-child) {
@@ -24,18 +25,29 @@
 }
 
 .button {
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	padding: 10px 20px;
 
+	border: 1px solid transparent;
 	background-color: #fff;
-	color: #000;
+	color: #191919;
 
 	font-size: 20px;
+	transition: border 0.3s ease, background-color 1s ease, color 0.3s ease;
+
+	@media (any-hover: hover) {
+		&:hover {
+			border: 1px solid #fff;
+			background-color: #191919;
+			color: #fff;
+			transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+		}
+	}
 }
 
 .info {
-	position: relative;
-
 	flex: 0 0 75%;
 }
 

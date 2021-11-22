@@ -12,4 +12,5 @@
   height: 50px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }

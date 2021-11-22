@@ -1,6 +1,6 @@
 .loadingIcon {
 	position: absolute;
-	top: 50px;
+	top: 0;
 	right: 0;
 
 	width: 100px;
@@ -13,9 +13,9 @@
 
 @keyframes :global(rotate) {
 	0% {
-		transform: translate(-50%, -50%) rotate(0deg);
+		transform: rotate(0deg);
 	}
 	100% {
-		transform: translate(-50%, -50%) rotate(360deg);
+		transform: rotate(360deg);
 	}
 }

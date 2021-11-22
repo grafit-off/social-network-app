@@ -1,7 +1,15 @@
 .descr {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 75%;
-          flex: 0 0 75%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .name {
@@ -11,10 +19,58 @@
   text-transform: uppercase;
 }
 
-.text {
+.about {
   font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.text:not(:last-child) {
+.work {
+  color: #a6a6a6;
+  font-size: 16px;
+}
+
+.workDescr {
+  margin-bottom: 15px;
+  color: #a6a6a6;
+  font-size: 16px;
+}
+
+.info {
+  margin-right: 20px;
+}
+
+.item {
+  text-align: right;
+}
+
+.item:not(:last-child) {
   margin-bottom: 10px;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  will-change: width;
+  height: 1px;
+  background-color: currentColor;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+
+@media (any-hover: hover) {
+  .link:hover::after {
+    width: 100%;
+    -webkit-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+  }
 }

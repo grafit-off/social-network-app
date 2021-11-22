@@ -26,9 +26,8 @@ const User = (props) => {
 				<span className={styles.name}>{props.userName}</span>
 				<span className={styles.location}>{props.location}</span>
 				<p className={styles.status + ' text-reset'}>{props.status}</p>
-				<NavLink to={'/profile/' + props.id} className={styles.userLink} aria-label={"Перейти к пользователю " + props.userName}></NavLink>
 			</div>
-
+			<NavLink to={'/profile/' + props.id} className={styles.userLink + " link-reset"} aria-label={"Перейти к пользователю " + props.userName}></NavLink>
 		</li>
 	)
 }

@@ -34,7 +34,7 @@ const App = (props) => {
 							path="/messages/*"
 							element={<Dialogs state={props.state.messagesPage} />} />
 						<Route
-							path="/users/*"
+							path="/users/"
 							element={<UsersContainer />} />
 						<Route
 							path="/news"

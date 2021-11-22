@@ -1,4 +1,5 @@
 .item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,15 +39,29 @@
 }
 
 .button {
+  position: relative;
+  z-index: 1;
   width: 100%;
   padding: 10px 20px;
+  border: 1px solid transparent;
   background-color: #fff;
-  color: #000;
+  color: #191919;
   font-size: 20px;
+  -webkit-transition: border 0.3s ease, background-color 1s ease, color 0.3s ease;
+  transition: border 0.3s ease, background-color 1s ease, color 0.3s ease;
+}
+
+@media (any-hover: hover) {
+  .button:hover {
+    border: 1px solid #fff;
+    background-color: #191919;
+    color: #fff;
+    -webkit-transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
 .info {
-  position: relative;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 75%;
           flex: 0 0 75%;

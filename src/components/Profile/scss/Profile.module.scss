@@ -1,4 +1,8 @@
+.section {
+	overflow-x: hidden;
+}
 .container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 }

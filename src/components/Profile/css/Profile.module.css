@@ -1,4 +1,9 @@
+.section {
+  overflow-x: hidden;
+}
+
 .container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

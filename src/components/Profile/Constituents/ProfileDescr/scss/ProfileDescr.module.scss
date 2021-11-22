@@ -1,5 +1,8 @@
 .descr {
-	flex: 0 0 75%;
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 .name {
 	margin-bottom: 20px;
@@ -8,9 +11,56 @@
 	font-weight: 700;
 	text-transform: uppercase;
 }
-.text {
+.about {
 	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.work {
+	color: #a6a6a6;
+	font-size: 16px;
+}
+.workDescr {
+	margin-bottom: 15px;
+
+	color: #a6a6a6;
+	font-size: 16px;
+}
+.info {
+	margin-right: 20px;
+}
+
+.item {
+	text-align: right;
+
 	&:not(:last-child) {
 		margin-bottom: 10px;
+	}
+}
+
+.link {
+	position: relative;
+	display: inline-block;
+
+	font-size: 14px;
+	text-transform: uppercase;
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 0;
+		will-change: width;
+		height: 1px;
+		background-color: currentColor;
+		transition: width 0.3s ease;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+				transition: width 0.3s ease;
+			}
+		}
 	}
 }

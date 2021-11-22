@@ -1,13 +1,14 @@
 .avatar {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(25% - 40px);
-          flex: 0 0 calc(25% - 40px);
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
   margin-right: 40px;
 }
 
 .img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }
