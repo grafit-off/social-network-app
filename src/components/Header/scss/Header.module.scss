@@ -2,6 +2,11 @@
 	padding: 10px 0;
 	border-bottom: 1px solid #fff;
 }
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
 .logo {
 	display: inline-block;
@@ -12,4 +17,37 @@
 	height: 50px;
 	object-fit: cover;
 	border-radius: 50%;
+}
+
+.link {
+	position: relative;
+
+	display: inline-block;
+
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 0;
+		height: 1px;
+
+		will-change: width;
+		background-color: currentColor;
+
+		transition: width 0.3s ease;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+
+				transition: width 0.3s ease;
+			}
+		}
+	}
 }

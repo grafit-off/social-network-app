@@ -8,7 +8,7 @@ const MessageForm = (props) => {
 
 	const updataMessageAreaText = () => props.updataMessageAreaText(textarea.current.value);
 	return (
-		<form className={styles.form}>
+		<form className={styles.form} >
 			<label htmlFor="dialog-message" className='visually-hidden'>
 				Введите текст поста
 			</label>
@@ -22,6 +22,7 @@ const MessageForm = (props) => {
 				placeholder="Введите ваше сообщение"
 				className={`${styles.textarea} input-reset`}></textarea>
 			<button
+				type='button'
 				className={`${styles.button} btn-reset`}
 				onClick={addMessage} >
 				Отправить

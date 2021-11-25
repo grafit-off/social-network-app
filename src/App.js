@@ -5,25 +5,24 @@ import {
 	Route,
 } from 'react-router-dom';
 
-import './css/normalize.css';
-import './css/App.css';
+import './assets/css/normalize.css';
+import './assets/css/App.css';
 
-import Header from './components/Header/Header';
 import Aside from './components/Aside/Aside';
-import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
-
+import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login'
 
 const App = (props) => {
 	return (
 		<BrowserRouter>
 			<div className="app">
-				<Header />
+				<HeaderContainer />
 				<Aside state={props.state.aside} />
 				<main className="app__main main">
 					<Routes>
@@ -32,7 +31,7 @@ const App = (props) => {
 							element={<ProfileContainer />} />
 						<Route
 							path="/messages/*"
-							element={<Dialogs state={props.state.messagesPage} />} />
+							element={<DialogsContainer />} />
 						<Route
 							path="/users/"
 							element={<UsersContainer />} />
@@ -42,6 +41,9 @@ const App = (props) => {
 						<Route
 							path="/settings"
 							element={<Settings />} />
+						<Route
+							path="/login"
+							element={<Login />} />
 					</Routes>
 				</main>
 				<Footer />

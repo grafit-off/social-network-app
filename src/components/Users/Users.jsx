@@ -1,4 +1,3 @@
-import * as axios from "axios";
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import Pagination from "./Constituents/Pagination/Pagination";
@@ -27,8 +26,8 @@ const Users = (props) => {
 								avatar={user.photos.large}
 								userName={user.name}
 								followed={user.followed}
-								location={"user.location"}
 								status={user.status}
+								followRequest={props.usersPage.followRequest}
 								followUser={props.followUser}
 								unfollowUser={props.unfollowUser}
 							/>

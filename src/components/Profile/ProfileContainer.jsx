@@ -1,26 +1,16 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { addPost, updatePostArea, setProfile } from '../../Redux/reducers/profile-reducer.js';
-import * as axios from 'axios';
-import { useMatch } from "react-router-dom";
+import { addPost, updatePostArea, getProfileThunk } from '../../Redux/reducers/profile-reducer.js';
+import { useMatch, Navigate } from "react-router-dom";
+import withAuthRedirectHOC from "../../hoc/withAuthRedirectHOC";
+import { compose } from "redux";
 
 class ProfileAPI extends React.Component {
 	componentDidMount() {
-		let userId;
-		if (this.props.match) {
-			userId = this.props.match.params.userId;
-		} else {
-			userId = '20875'
-		}
-		axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-			.then((resolve) => {
-				this.props.setProfile(resolve.data);
-			}, (reject) => {
-				this.props.setProfile('404');
-			});
+		let userId = this.props.match ? this.props.match.params.userId : '20875';
+		this.props.getProfileThunk(userId);
 	}
-
 	render() {
 		return (
 			<Profile {...this.props} />
@@ -41,5 +31,10 @@ const mapStateToProps = (state) => {
 	}
 }
 
+const ProfileContainer = compose(
+	connect(mapStateToProps, { addPost, updatePostArea, getProfileThunk }),
+	withAuthRedirectHOC,
+)(ProfileMatch)
 
-export default connect(mapStateToProps, { addPost, updatePostArea, setProfile })(ProfileMatch);
+
+export default ProfileContainer;

@@ -38,12 +38,15 @@
 	transition: border 0.3s ease, background-color 1s ease, color 0.3s ease;
 
 	@media (any-hover: hover) {
-		&:hover {
+		&:hover:not(:disabled) {
 			border: 1px solid #fff;
 			background-color: #191919;
 			color: #fff;
 			transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 		}
+	}
+	&:disabled {
+		opacity: 0.5;
 	}
 }
 

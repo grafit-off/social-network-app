@@ -1,47 +1,41 @@
 import React from "react";
 import { connect } from "react-redux";
-import { followUser, setUsers, unfollowUser, setCurrentPage, setTotalUsersCount, setFetching } from "../../Redux/reducers/users-reducer";
-import * as axios from "axios";
+import {
+	followUserThunk, unfollowUserThunk, getUsersThunk
+} from "../../Redux/reducers/users-reducer";
 import Users from "./Users";
 
 
 class UsersAPIContainer extends React.Component {
 	componentDidMount() {
 		if (!this.props.usersPage.usersData.length) {
-			this.props.setFetching(true);
-			axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-				.then((resolve) => {
-					this.props.setFetching(false);
-					this.props.setUsers(resolve.data.items);
-					this.props.setTotalUsersCount(resolve.data.totalCount);
-				})
+			this.props.getUsersThunk(this.props.usersPage.currentPage, this.props.usersPage.pageSize);
 		}
 	}
 
 	onPageChange = (page) => {
-		this.props.setFetching(true);
-		this.props.setCurrentPage(page);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.usersPage.pageSize}`)
-			.then((resolve) => {
-				this.props.setFetching(false);
-				this.props.setUsers(resolve.data.items);
-			})
+		this.props.getUsersThunk(page, this.props.usersPage.pageSize);
+	}
+
+	followUser = (userId) => {
+		this.props.followUserThunk(userId);
+	}
+
+	unfollowUser = (userId) => {
+		this.props.unfollowUserThunk(userId);
 	}
 
 	render() {
-
 		return <>
-
 			<Users
 				usersPage={this.props.usersPage}
 				onPageChange={this.onPageChange}
-				followUser={this.props.followUser}
-				unfollowUser={this.props.unfollowUser}
+				followUser={this.followUser}
+				unfollowUser={this.unfollowUser}
 			/>
 		</>
 	}
 }
-
 
 const mapStateToProps = (state) => {
 	return {
@@ -50,5 +44,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-	followUser, unfollowUser, setUsers, setCurrentPage, setTotalUsersCount, setFetching
+	getUsersThunk, followUserThunk, unfollowUserThunk
 })(UsersAPIContainer);

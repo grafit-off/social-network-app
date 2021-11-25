@@ -11,7 +11,7 @@ const Nav = (props) => {
 					<NavLink
 						to="/profile"
 						className={navData => `${styles.link} link-reset ` + (navData.isActive ? styles.active : '')}>
-						Мой профиль
+						Профиль
 					</NavLink>
 				</li>
 				<li className={styles.item}>

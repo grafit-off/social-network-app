@@ -1,3 +1,5 @@
+import { profileAPI } from "../../api/api";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_AREA_TEXT = 'UPDATE-POST-AREA-TEXT';
 const SET_PROFILE = 'SET-PROFILE';
@@ -54,9 +56,17 @@ const profileReducer = (state = initialState, action) => {
 	}
 };
 
-
 export const addPost = () => ({ type: ADD_POST });
 export const updatePostArea = (text) => ({ type: UPDATE_POST_AREA_TEXT, newText: text });
 export const setProfile = (profile) => ({ type: SET_PROFILE, profile })
+
+export const getProfileThunk = userId => dispatch => {
+	profileAPI.getProfile(userId)
+		.then((response) => {
+			dispatch(setProfile(response));
+		}, (reject) => {
+			dispatch(setProfile('404'));
+		});
+}
 
 export default profileReducer;

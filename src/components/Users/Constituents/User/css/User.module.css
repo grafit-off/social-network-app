@@ -52,13 +52,17 @@
 }
 
 @media (any-hover: hover) {
-  .button:hover {
+  .button:hover:not(:disabled) {
     border: 1px solid #fff;
     background-color: #191919;
     color: #fff;
     -webkit-transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     transition: border 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   }
+}
+
+.button:disabled {
+  opacity: 0.5;
 }
 
 .info {

@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import styles from './css/User.module.css';
 
 const User = (props) => {
-
-
 	return (
 		<li className={styles.item} >
 			<div className={styles.promo}>
@@ -15,9 +13,11 @@ const User = (props) => {
 				{
 					props.followed ?
 						<button
+							disabled={props.followRequest.some(id => id === props.id)}
 							onClick={() => props.unfollowUser(props.id)}
 							className={styles.button + " btn-reset"}>Удалить</button>
 						: <button
+							disabled={props.followRequest.some(id => id === props.id)}
 							onClick={() => props.followUser(props.id)}
 							className={styles.button + " btn-reset"}>Добавить в друзья</button>
 				}

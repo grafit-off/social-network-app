@@ -4,6 +4,7 @@ import MessagesItem from "../MessagesItem/MessagesItem";
 import styles from './css/MessagesBlock.module.css';
 
 const MessagesBlock = (props) => {
+
 	let messagesItems = props.messagesData
 		.map((el, i, arr) => {
 			return <MessagesItem

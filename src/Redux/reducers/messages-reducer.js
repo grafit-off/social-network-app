@@ -45,7 +45,7 @@ const initialState = {
 		message: 'Круто! Жду новых видео)',
 		avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
 	}],
-	newMassageText: ''
+	newMessageText: ''
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -55,20 +55,20 @@ const messagesReducer = (state = initialState, action) => {
 			let newMessage = {
 				id: 6,
 				name: 'Николай Чёрный',
-				message: state.newMassageText,
+				message: state.newMessageText,
 				avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
 			};
 			return {
 				...state,
 				messagesData: [...state.messagesData, newMessage],
-				newMassageText: ''
+				newMessageText: ''
 			};
 		}
 
 		case UPDATE_MESSAGE_AREA_TEXT: {
 			return {
 				...state,
-				newMassageText: action.newText
+				newMessageText: action.newText
 			}
 		}
 

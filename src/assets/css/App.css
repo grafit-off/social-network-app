@@ -3,6 +3,7 @@ body {
   background-color: #191919;
   font-family: sans-serif;
   color: #fff;
+  overflow-x: hidden;
 }
 
 #root {
@@ -21,7 +22,6 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow-x: hidden;
 }
 
 .app__header {
