@@ -12,7 +12,8 @@ const ProfileInfo = (props) => {
 			/>
 			<ProfileDescr
 				profile={props.profile}
-				status={props.status} />
+				status={props.status}
+				updateStatusThunk={props.updateStatusThunk} />
 		</div>
 	)
 }

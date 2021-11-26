@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { addPost, updatePostArea, getProfileThunk } from '../../Redux/reducers/profile-reducer.js';
+import { addPost, updatePostArea, getProfileThunk, updateStatusThunk } from '../../Redux/reducers/profile-reducer.js';
 import { useMatch } from "react-router-dom";
 import withAuthRedirectHOC from "../../hoc/withAuthRedirectHOC";
 import { compose } from "redux";
@@ -32,8 +32,8 @@ const mapStateToProps = (state) => {
 }
 
 const ProfileContainer = compose(
-	connect(mapStateToProps, { addPost, updatePostArea, getProfileThunk }),
-	withAuthRedirectHOC,
+	connect(mapStateToProps, { addPost, updatePostArea, getProfileThunk, updateStatusThunk }),
+
 )(ProfileMatch)
 
 

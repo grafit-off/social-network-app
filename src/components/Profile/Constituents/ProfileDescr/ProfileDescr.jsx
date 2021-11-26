@@ -5,7 +5,7 @@ import styles from './css/ProfileDescr.module.css'
 const ProfileDescr = (props) => {
 	const status = () => {
 		return (
-			<ProfileStatus status={props.status} />
+			<ProfileStatus status={props.status} updateStatusThunk={props.updateStatusThunk} />
 		)
 	}
 

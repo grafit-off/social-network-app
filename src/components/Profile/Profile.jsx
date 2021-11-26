@@ -24,6 +24,7 @@ const Profile = (props) => {
 					<ProfileInfo
 						profile={props.profilePage.profile}
 						status={props.profilePage.status}
+						updateStatusThunk={props.updateStatusThunk}
 					/>
 				</div>
 			</section>

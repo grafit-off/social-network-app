@@ -1,7 +1,10 @@
 .status {
 	margin-bottom: 15px;
 }
-.statusContainer {
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
 }
 
 .button {

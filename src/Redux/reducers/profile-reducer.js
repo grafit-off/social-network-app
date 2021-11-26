@@ -81,4 +81,13 @@ export const getProfileThunk = userId => dispatch => {
 		.then(response => dispatch(setStatus(response)));
 }
 
+export const updateStatusThunk = status => dispatch => {
+	profileAPI.updateStatus(status)
+		.then(response => {
+			if (response.resultCode === 0) {
+				dispatch(setStatus(status));
+			}
+		});
+}
+
 export default profileReducer;

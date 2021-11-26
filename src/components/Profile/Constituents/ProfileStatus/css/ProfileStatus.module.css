@@ -2,6 +2,15 @@
   margin-bottom: 15px;
 }
 
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .button {
   position: relative;
   font-size: 14px;
