@@ -1,11 +1,18 @@
 import React from "react";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import styles from './css/ProfileDescr.module.css'
 
 const ProfileDescr = (props) => {
+	const status = () => {
+		return (
+			<ProfileStatus status={props.status} />
+		)
+	}
+
 	const about = () => {
 		if (props.profile.aboutMe) {
 			return (
-				<p className={styles.about + " text-reset"}>
+				<p className={styles.text + " text-reset"}>
 					{props.profile.aboutMe}
 				</p>
 			)
@@ -55,6 +62,7 @@ const ProfileDescr = (props) => {
 				<h1 className={`${styles.name} text-reset`}>
 					{props.profile.fullName}
 				</h1>
+				{status()}
 				{about()}
 				{work()}
 				{workDescr()}

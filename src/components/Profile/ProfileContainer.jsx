@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { addPost, updatePostArea, getProfileThunk } from '../../Redux/reducers/profile-reducer.js';
-import { useMatch, Navigate } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 import withAuthRedirectHOC from "../../hoc/withAuthRedirectHOC";
 import { compose } from "redux";
 

@@ -3,6 +3,7 @@ import { profileAPI } from "../../api/api";
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_AREA_TEXT = 'UPDATE-POST-AREA-TEXT';
 const SET_PROFILE = 'SET-PROFILE';
+const SET_STATUS = 'SET-STATUS';
 
 const initialState = {
 	postsData: [{
@@ -19,6 +20,7 @@ const initialState = {
 		likes: 57
 	}],
 	profile: null,
+	status: null,
 	newPostText: '',
 };
 
@@ -51,6 +53,13 @@ const profileReducer = (state = initialState, action) => {
 			};
 		}
 
+		case SET_STATUS: {
+			return {
+				...state,
+				status: action.status
+			};
+		}
+
 		default:
 			return state;
 	}
@@ -58,7 +67,8 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPost = () => ({ type: ADD_POST });
 export const updatePostArea = (text) => ({ type: UPDATE_POST_AREA_TEXT, newText: text });
-export const setProfile = (profile) => ({ type: SET_PROFILE, profile })
+export const setProfile = (profile) => ({ type: SET_PROFILE, profile });
+export const setStatus = (status) => ({ type: SET_STATUS, status });
 
 export const getProfileThunk = userId => dispatch => {
 	profileAPI.getProfile(userId)
@@ -67,6 +77,8 @@ export const getProfileThunk = userId => dispatch => {
 		}, (reject) => {
 			dispatch(setProfile('404'));
 		});
+	profileAPI.getStatus(userId)
+		.then(response => dispatch(setStatus(response)));
 }
 
 export default profileReducer;

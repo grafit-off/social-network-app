@@ -11,7 +11,8 @@ const ProfileInfo = (props) => {
 				img={props.profile.photos.large ? props.profile.photos.large : avatar}
 			/>
 			<ProfileDescr
-				profile={props.profile} />
+				profile={props.profile}
+				status={props.status} />
 		</div>
 	)
 }

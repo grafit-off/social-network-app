@@ -1,0 +1,80 @@
+.status {
+	margin-bottom: 15px;
+}
+.statusContainer {
+}
+
+.button {
+	position: relative;
+	font-size: 14px;
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 0;
+		height: 2px;
+
+		will-change: width;
+		background-color: currentColor;
+
+		transition: width 0.3s ease;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+				transition: width 0.3s ease;
+			}
+		}
+	}
+}
+
+.text {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+.inputContainer {
+	display: block;
+}
+
+.label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.input {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px 8px;
+
+	border: 1px solid #fff;
+	border-radius: 10px;
+	background-color: #191919;
+	color: #fff;
+	transition: box-shadow 0.3s ease;
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 10px;
+
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus-visible {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 10px;
+
+		transition: box-shadow 0.3s ease;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: 0;
+		box-shadow: none;
+	}
+}

@@ -23,6 +23,7 @@ const Profile = (props) => {
 						cover={coverImg} />
 					<ProfileInfo
 						profile={props.profilePage.profile}
+						status={props.profilePage.status}
 					/>
 				</div>
 			</section>

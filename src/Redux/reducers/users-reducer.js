@@ -14,7 +14,7 @@ const initialState = {
 	totalUsersCount: 0,
 	currentPage: 1,
 	isFetching: false,
-	followRequest: [1]
+	followRequest: []
 };
 
 const usersReducer = (state = initialState, action) => {

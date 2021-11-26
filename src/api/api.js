@@ -28,6 +28,10 @@ export const profileAPI = {
 	getProfile(userId) {
 		return axiosInstance.get(`profile/${userId}`)
 			.then(resolve => resolve.data)
+	},
+	getStatus(userId) {
+		return axiosInstance.get(`profile/status/${userId}`)
+			.then(resolve => resolve.data)
 	}
 }
 
