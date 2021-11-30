@@ -19,11 +19,52 @@
 	border-radius: 50%;
 }
 
+.loginBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
 .link {
 	position: relative;
 
 	display: inline-block;
+	margin-bottom: 5px;
 
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 0;
+		height: 1px;
+
+		will-change: width;
+		background-color: currentColor;
+
+		transition: width 0.3s ease;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+
+				transition: width 0.3s ease;
+			}
+		}
+	}
+}
+
+.btn {
+	position: relative;
+
+	display: inline-block;
+
+	font-size: 12px;
 	font-weight: 700;
 	text-transform: uppercase;
 

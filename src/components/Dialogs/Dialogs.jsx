@@ -11,9 +11,7 @@ const Dialogs = (props) => {
 				<div className={styles.row}>
 					<DialogsList dialogsData={props.messagesPage.dialogsData} />
 					<MessagesBlock
-						newMessageText={props.messagesPage.newMessageText}
 						addMessage={props.addMessage}
-						updataMessageAreaText={props.updataMessageAreaText}
 						messagesData={props.messagesPage.messagesData} />
 				</div>
 			</div>

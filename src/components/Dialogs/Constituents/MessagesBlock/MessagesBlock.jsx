@@ -22,7 +22,7 @@ const MessagesBlock = (props) => {
 			<ul className={styles.list + ' list-reset'}>
 				{messagesItems}
 			</ul>
-			<MessageForm newMessageText={props.newMessageText} addMessage={props.addMessage} updataMessageAreaText={props.updataMessageAreaText} />
+			<MessageForm addMessage={props.addMessage} />
 		</div>
 	)
 };

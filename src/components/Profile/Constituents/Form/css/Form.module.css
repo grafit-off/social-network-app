@@ -9,10 +9,13 @@
   margin-bottom: 30px;
 }
 
+.textareaWrapper {
+  margin-bottom: 20px;
+}
+
 .textarea {
   width: 100%;
   height: 100px;
-  margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #959595;
   border-radius: 20px;
@@ -21,6 +24,30 @@
   transition: -webkit-box-shadow 0.3s ease;
   transition: box-shadow 0.3s ease;
   transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+.textarea::-webkit-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textarea:-ms-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textarea::-ms-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textarea::placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .textarea:focus {
@@ -50,6 +77,39 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 20px;
+}
+
+.textareaError {
+  -webkit-box-shadow: 0 0 0 2px #fa5555;
+          box-shadow: 0 0 0 2px #fa5555;
+}
+
+.textareaError::-webkit-input-placeholder {
+  color: #fa5555;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textareaError:-ms-input-placeholder {
+  color: #fa5555;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textareaError::-ms-input-placeholder {
+  color: #fa5555;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.textareaError::placeholder {
+  color: #fa5555;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.error {
+  color: #fa5555;
 }
 
 .button {

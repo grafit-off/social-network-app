@@ -1,0 +1,40 @@
+.field {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.text {
+	font-size: 18px;
+}
+
+.input {
+	padding: 10px 10px;
+
+	border: 2px solid transparent;
+	border-radius: 5px;
+
+	font-size: 18px;
+
+	transition: border 0.3s ease;
+	&:not(:last-child) {
+		margin-bottom: 10px;
+	}
+	&::placeholder {
+		color: #999;
+		transition: color 0.3s ease;
+	}
+}
+
+.inputError {
+	border: 2px solid #ff6868;
+	transition: border 0.3s ease;
+	&::placeholder {
+		color: #ff6868;
+		transition: color 0.3s ease;
+	}
+}
+
+.error {
+	color: #ff6868;
+}

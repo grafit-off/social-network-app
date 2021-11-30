@@ -1,0 +1,14 @@
+.captcha {
+  margin-bottom: 20px;
+}
+
+.image {
+  display: block;
+}
+
+.img {
+  width: 200px;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}

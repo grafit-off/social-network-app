@@ -16,7 +16,7 @@ import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login'
+import LoginContainer from './components/Login/LoginContainer'
 
 const App = (props) => {
 	return (
@@ -43,7 +43,7 @@ const App = (props) => {
 							element={<Settings />} />
 						<Route
 							path="/login"
-							element={<Login />} />
+							element={<LoginContainer />} />
 					</Routes>
 				</main>
 				<Footer />

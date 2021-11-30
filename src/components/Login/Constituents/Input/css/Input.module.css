@@ -1,0 +1,85 @@
+.field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.input {
+  padding: 10px 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  font-size: 18px;
+  -webkit-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.input:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.input::-webkit-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.input:-ms-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.input::-ms-input-placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.input::placeholder {
+  color: #999;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.inputError {
+  border: 2px solid #ff6868;
+  -webkit-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.inputError::-webkit-input-placeholder {
+  color: #ff6868;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.inputError:-ms-input-placeholder {
+  color: #ff6868;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.inputError::-ms-input-placeholder {
+  color: #ff6868;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.inputError::placeholder {
+  color: #ff6868;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.error {
+  color: #ff6868;
+}

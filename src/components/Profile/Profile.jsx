@@ -30,8 +30,6 @@ const Profile = (props) => {
 			</section>
 			<Posts
 				postsData={props.profilePage.postsData}
-				newPostText={props.profilePage.newPostText}
-				updatePostArea={props.updatePostArea}
 				addPost={props.addPost} />
 		</>
 	)

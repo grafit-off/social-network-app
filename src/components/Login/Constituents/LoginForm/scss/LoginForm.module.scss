@@ -1,0 +1,52 @@
+.form {
+	display: flex;
+	flex-direction: column;
+}
+.fieldset {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.legend {
+	margin-bottom: 15px;
+	font-size: 22px;
+}
+
+.submit {
+	align-self: flex-end;
+	padding: 10px 20px;
+
+	background-color: #fff;
+	border-radius: 15px;
+	color: #000;
+
+	text-transform: uppercase;
+	font-weight: 700;
+
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 15px;
+		transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+	}
+
+	&:focus-visible {
+		outline: 0;
+		box-shadow: 0 0 0 3px #8edc44;
+		border-radius: 15px;
+		transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: 0;
+		box-shadow: none;
+		border-radius: 15px;
+	}
+}
+
+.error {
+	margin-bottom: 15px;
+
+	color: #ff6868;
+}

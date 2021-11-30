@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_AREA_TEXT = 'UPDATE-MESSAGE-AREA-TEXT';
 
 const initialState = {
 	dialogsData: [{
@@ -45,31 +44,21 @@ const initialState = {
 		message: 'Круто! Жду новых видео)',
 		avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
 	}],
-	newMessageText: ''
 };
 
 const messagesReducer = (state = initialState, action) => {
-
 	switch (action.type) {
 		case ADD_MESSAGE: {
 			let newMessage = {
 				id: 6,
 				name: 'Николай Чёрный',
-				message: state.newMessageText,
+				message: action.message,
 				avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
 			};
 			return {
 				...state,
 				messagesData: [...state.messagesData, newMessage],
-				newMessageText: ''
 			};
-		}
-
-		case UPDATE_MESSAGE_AREA_TEXT: {
-			return {
-				...state,
-				newMessageText: action.newText
-			}
 		}
 
 		default:
@@ -78,8 +67,8 @@ const messagesReducer = (state = initialState, action) => {
 };
 
 
-export const addMessage = () => ({ type: ADD_MESSAGE });
-export const updataMessageAreaText = (text) => ({ type: UPDATE_MESSAGE_AREA_TEXT, newText: text });
+export const addMessage = (message) => ({ type: ADD_MESSAGE, message });
+// export const updataMessageAreaText = (text) => ({ type: UPDATE_MESSAGE_AREA_TEXT, newText: text });
 
 
 

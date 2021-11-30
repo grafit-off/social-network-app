@@ -10,9 +10,12 @@ const Header = (props) => {
 				<a href="/" className={`${styles.logo} link-reset`}>
 					<img src={logo} alt="Логотип" className={styles.img} />
 				</a>
-				<div className={styles.loginBlock}>
-					{props.user.isAuth ? <NavLink to="/profile" className={styles.link + ' link-reset'}>{props.user.userData.login}</NavLink> : <NavLink to='/login' className={styles.link + ' link-reset'}>Войти</NavLink>}
-				</div>
+				{props.user.isAuth
+					? <div className={styles.loginBlock}>
+						<NavLink to="/profile" className={styles.link + ' link-reset'}>{props.user.userData.login}</NavLink>
+						<button onClick={props.logout} className={styles.btn + ' btn-reset'}>Выйти</button>
+					</div>
+					: <NavLink to='/login' className={styles.link + ' link-reset'}>Войти</NavLink>}
 			</div>
 		</header>
 	)

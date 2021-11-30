@@ -1,0 +1,70 @@
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.legend {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.submit {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.submit:focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 3px #8edc44;
+          box-shadow: 0 0 0 3px #8edc44;
+  border-radius: 15px;
+  -webkit-transition: border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+.submit:focus-visible {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 3px #8edc44;
+          box-shadow: 0 0 0 3px #8edc44;
+  border-radius: 15px;
+  -webkit-transition: border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+.submit:focus:not(:focus-visible) {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 15px;
+}
+
+.error {
+  margin-bottom: 15px;
+  color: #ff6868;
+}
