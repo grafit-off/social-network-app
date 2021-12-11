@@ -38,14 +38,12 @@ export const setCaptcha = (captcha) => ({ type: SET_CAPTCHA, captcha });
 export const getCaptchaThunk = () => (dispatch) => {
 	authAPI.getCaptcha()
 		.then((response) => {
-			console.log(response.url);
-
 			dispatch(setCaptcha(response.url));
 		})
 }
 
 export const getUserDataThunk = () => (dispatch) => {
-	authAPI.getUserInfo()
+	return authAPI.getUserInfo()
 		.then((response) => {
 			if (response.resultCode === 0) {
 				dispatch(setUserData(response.data, true));
@@ -64,7 +62,11 @@ export const userLoginThunk = (data, setFormStatus) => (dispatch) => {
 			} else if (response.resultCode === 10) {
 				dispatch(getCaptchaThunk());
 			} else {
-				setFormStatus("Вы ввели неверные данные!");
+				if (response.messages[0] === 'Incorrect Email or Password') {
+					setFormStatus("Вы ввели неверные данные!");
+				} else {
+					setFormStatus(response.messages);
+				}
 				console.warn(`Message: ${response.messages}; \nError code: ${response.resultCode}.`);
 			}
 		})

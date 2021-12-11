@@ -6,13 +6,16 @@ import messagesReducer from './reducers/messages-reducer';
 import profileReducer from './reducers/profile-reducer';
 import usersReducer from './reducers/users-reducer';
 import authReducer from './reducers/auth-reducer';
+import appReducer from './reducers/app-reducer';
+
 
 const reducers = combineReducers({
 	aside: asideReducer,
 	messagesPage: messagesReducer,
 	profilePage: profileReducer,
 	usersPage: usersReducer,
-	auth: authReducer
+	auth: authReducer,
+	app: appReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

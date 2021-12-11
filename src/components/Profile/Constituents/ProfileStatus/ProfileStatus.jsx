@@ -1,61 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './css/ProfileStatus.module.css';
 
-class ProfileStatus extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			editMode: false,
-			status: this.props.status
-		}
-	}
-	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.status !== this.props.status) {
-			this.setState({ status: this.props.status });
-		}
+const ProfileStatus = (props) => {
+	const [editMode, setEditMode] = useState(false);
+	const [status, setStatus] = useState(props.status);
+	useEffect(() => {
+		setStatus(props.status)
+	}, [props.status])
+
+	const activateEditMode = () => {
+		setEditMode(true)
 	}
 
-	activateEditMode = () => {
-		this.setState({ editMode: true })
+	const deActivateEditMode = () => {
+		setEditMode(false)
 	}
 
-	deActivateEditMode = () => {
-		this.setState({ editMode: false })
-	}
-
-	sendStatus = () => {
-		this.deActivateEditMode();
-		if (this.props.status !== this.state.status) {
-			this.props.updateStatusThunk(this.state.status);
+	const sendStatus = () => {
+		deActivateEditMode();
+		if (props.status !== status) {
+			props.updateStatusThunk(status);
 		}
 	}
 
-	onInput = (e) => {
-		this.setState({ status: e.target.value });
+	const onInput = (e) => {
+		setStatus(e.target.value);
 	}
 
-	render() {
-		return (
-			<div className={styles.status}>
-				{!this.state.editMode
-					? <div className={styles.statusContainer}>
-						<p className={styles.text + " text-reset"}>{this.props.status ? this.props.status : ''} </p>
-						<button onClick={this.activateEditMode} className={styles.button + " btn-reset"}>(Изменить)</button>
+	return (
+		<div className={styles.status}>
+			{!editMode
+				? <div className={styles.statusContainer}>
+					<p className={styles.text + " text-reset"}>{props.status ? props.status : ''} </p>
+					<button className={styles.button + " btn-reset"} onClick={activateEditMode}>(Изменить)</button>
+				</div>
+				: <label className={styles.inputContainer}>
+					<span className={styles.label}> Введите ваш статус:</span>
+					<input type="text" className={styles.input + ' input-reset'} onChange={onInput} value={status ? status : ''} />
+					<div className={styles.buttons}>
+						<button className={styles.button + " btn-reset"} onClick={sendStatus}>Сохранить</button>
+						<button className={styles.button + " btn-reset"} onClick={deActivateEditMode}>Отменить</button>
 					</div>
-					: <label className={styles.inputContainer}>
-						<span className={styles.label}> Введите ваш статус:</span>
-						<input type="text" onChange={(e) => {
-							this.onInput(e);
-						}} value={this.state.status} className={styles.input + ' input-reset'} />
-						<div className={styles.buttons}>
-							<button onClick={this.sendStatus} className={styles.button + " btn-reset"}>Сохранить</button>
-							<button onClick={this.deActivateEditMode} className={styles.button + " btn-reset"}>Отменить</button>
-						</div>
-					</label>
-				}
-			</div>
-		)
-	}
+				</label>
+			}
+		</div>
+	)
 }
 
 export default ProfileStatus;

@@ -5,21 +5,21 @@ import User from "./Constituents/User/User";
 import styles from './css/Users.module.css';
 
 const Users = (props) => {
-	let pagesCount = props.usersPage.totalUsersCount / props.usersPage.pageSize;
+	let pagesCount = props.totalUsersCount / props.pageSize;
 	return (
 		<section className={styles.section}>
 			<div className={styles.container}>
 				<h1 className={styles.heading + ' text-reset'}>Пользователи</h1>
-				{props.usersPage.isFetching ? <Preloader /> : null}
+				{props.isFetching ? <Preloader /> : null}
 				<Pagination
-					currentPage={props.usersPage.currentPage}
+					currentPage={props.currentPage}
 					pagesCount={pagesCount}
-					pageSize={props.usersPage.pageSize}
+					pageSize={props.pageSize}
 					onPageChange={props.onPageChange}
 				/>
 				<ul className={styles.list + ' list-reset'}>
 					{
-						props.usersPage.usersData.map(user => {
+						props.usersData.map(user => {
 							return <User
 								key={user.id}
 								id={user.id}
@@ -27,7 +27,7 @@ const Users = (props) => {
 								userName={user.name}
 								followed={user.followed}
 								status={user.status}
-								followRequest={props.usersPage.followRequest}
+								followRequest={props.followRequest}
 								followUser={props.followUser}
 								unfollowUser={props.unfollowUser}
 							/>
