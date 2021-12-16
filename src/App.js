@@ -25,7 +25,6 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import LoginContainer from './components/Login/LoginContainer';
 import Preloader from './common/Preloader/Preloader';
 
-
 class App extends React.Component {
 	componentDidMount() {
 		this.props.initializeThunk();

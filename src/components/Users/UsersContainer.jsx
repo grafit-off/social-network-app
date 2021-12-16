@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-	followUserThunk, unfollowUserThunk, getUsersThunk
+	toggleFollowUserThunk, getUsersThunk
 } from "../../Redux/reducers/users-reducer";
 import { getCurrentPage, getFollowRequest, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from "../../Redux/reducers/users-selector";
 import Users from "./Users";
@@ -11,20 +11,18 @@ import Users from "./Users";
 class UsersAPIContainer extends React.Component {
 	componentDidMount() {
 		if (!this.props.usersData.length) {
-			this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+			const { currentPage, pageSize } = this.props;
+			this.props.getUsersThunk(currentPage, pageSize);
 		}
 	}
 
 	onPageChange = (page) => {
-		this.props.getUsersThunk(page, this.props.pageSize);
+		const { pageSize } = this.props;
+		this.props.getUsersThunk(page, pageSize);
 	}
 
-	followUser = (userId) => {
-		this.props.followUserThunk(userId);
-	}
-
-	unfollowUser = (userId) => {
-		this.props.unfollowUserThunk(userId);
+	toggleFollow = (userId, follow) => {
+		this.props.toggleFollowUserThunk(userId, follow);
 	}
 
 	render() {
@@ -32,8 +30,7 @@ class UsersAPIContainer extends React.Component {
 			<Users
 				{...this.props}
 				onPageChange={this.onPageChange}
-				followUser={this.followUser}
-				unfollowUser={this.unfollowUser}
+				toggleFollow={this.toggleFollow}
 			/>
 		</>
 	}
@@ -51,5 +48,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-	getUsersThunk, followUserThunk, unfollowUserThunk
+	getUsersThunk, toggleFollowUserThunk
 })(UsersAPIContainer);

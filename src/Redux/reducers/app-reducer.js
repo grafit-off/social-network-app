@@ -1,8 +1,8 @@
-import { authAPI } from "../../api/api";
 import { getUserDataThunk } from './auth-reducer';
 
-const INITIALIZE_SUCCES = 'INITIALIZE_SUCCES';
-
+// Action Types
+const INITIALIZE_SUCCES = 'social-network/app-reducer/INITIALIZE_SUCCES';
+// -- //
 
 const initialState = {
 	isInitialized: false
@@ -22,16 +22,18 @@ const appReducer = (state = initialState, action) => {
 	}
 };
 
-
+// Actions Creators
 export const setInitialize = () => ({ type: INITIALIZE_SUCCES });
+// -- //
 
+// Thunks Creators
 export const initializeThunk = () => (dispatch) => {
 	const dispatchPromises = [dispatch(getUserDataThunk())];
-	// dispatch(another())
 	Promise.all(dispatchPromises)
 		.then(() => {
 			dispatch(setInitialize());
 		})
 }
+// -- //
 
 export default appReducer;

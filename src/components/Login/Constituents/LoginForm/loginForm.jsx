@@ -56,14 +56,24 @@ const LoginForm = (props) => {
 					<Form className={styles.form}>
 						<fieldset className={styles.fieldset}>
 							<legend className={styles.legend}>Введите ваши данные</legend>
-							<Input label="Ваша электронная почта:" handleFocus={() => { formik.setStatus(null); }} name="email" type="email" placeholder="Эл. почта" />
-							<Input label="Ваш пароль:" name="password" handleFocus={() => { formik.setStatus(null); }} type="password" placeholder="Пароль" />
+							<Input
+								label="Ваша электронная почта:"
+								handleFocus={() => { formik.setStatus(null); }}
+								name="email" type="email"
+								placeholder="Эл. почта" />
+							<Input
+								label="Ваш пароль:"
+								name="password"
+								handleFocus={() => { formik.setStatus(null); }}
+								type="password" placeholder="Пароль" />
 							{formik.status ? <div className={styles.error}>{formik.status}</div> : null}
 							{formik.status ? setCurrentStatus(formik.status) : setCurrentStatus(null)}
 							{props.captcha ? <Captcha name="captcha" captcha={props.captcha} /> : null}
 							<Checkbox label="Запомнить меня" name="rememberMe" />
 						</fieldset>
-						<button type="submit" className={styles.submit + " btn-reset"}>Войти</button>
+						<button type="submit"
+							className={styles.submit + " btn-reset"}
+							disabled={formik.status ? true : false}>Войти</button>
 					</Form>
 				)
 			}}

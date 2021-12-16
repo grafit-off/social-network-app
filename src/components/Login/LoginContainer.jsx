@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Login from './Login';
-import { userLoginThunk } from '../../Redux/reducers/auth-reducer.js'
 import { Navigate } from 'react-router';
+import { userLoginThunk } from '../../Redux/reducers/auth-reducer.js'
+import Login from './Login';
 
 class LoginContainer extends React.Component {
 	login = (data, actions) => {

@@ -1,7 +1,4 @@
-// Action Types
-const ADD_MESSAGE = 'social-network/messages-reducer/ADD-MESSAGE';
-const DELETE_MESSAGE = 'social-network/messages-reducer/DELETE-MESSAGE';
-// -- //
+import messagesReducer, { addMessage, deleteMessage } from "./messages-reducer";
 
 const initialState = {
 	dialogsData: [{
@@ -49,35 +46,27 @@ const initialState = {
 	}],
 };
 
-const messagesReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case ADD_MESSAGE: {
-			let newMessage = {
-				id: 6,
-				name: 'Николай Чёрный',
-				message: action.message,
-				avatar: 'https://i.pinimg.com/736x/50/8d/4c/508d4cd0e2a9daeb96b3ee92dcf665b7.jpg'
-			};
-			return {
-				...state,
-				messagesData: [...state.messagesData, newMessage],
-			};
-		}
-		case DELETE_MESSAGE: {
-			return {
-				...state,
-				messagesData: state.messagesData.filter(el => el.id !== action.id)
-			}
-		}
+test('Message length should increment', () => {
+	let action = addMessage('Test');
 
-		default:
-			return state;
-	}
-};
+	let newState = messagesReducer(initialState, action);
 
-// Actions Creators
-export const addMessage = (message) => ({ type: ADD_MESSAGE, message });
-export const deleteMessage = (id) => ({ type: DELETE_MESSAGE, id });
-// -- //
+	expect(newState.messagesData.length).toBe(6);
+})
 
-export default messagesReducer;
+test('Message text should be correct', () => {
+	let action = addMessage('Test');
+
+	let newState = messagesReducer(initialState, action);
+
+	expect(newState.messagesData[5].message).toBe('Test');
+})
+
+
+test('Message length should decrement', () => {
+	let action = deleteMessage(5);
+
+	let newState = messagesReducer(initialState, action);
+
+	expect(newState.messagesData.length).toBe(4);
+})

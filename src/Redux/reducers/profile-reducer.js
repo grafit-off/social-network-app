@@ -1,8 +1,11 @@
 import { profileAPI } from "../../api/api";
 
-const ADD_POST = 'ADD-POST';
-const SET_PROFILE = 'SET-PROFILE';
-const SET_STATUS = 'SET-STATUS';
+// Action Types
+const ADD_POST = 'social-network/profile-reducer/ADD-POST';
+const DELETE_POST = 'social-network/profile-reducer/DELETE-POST';
+const SET_PROFILE = 'social-network/profile-reducer/SET-PROFILE';
+const SET_STATUS = 'social-network/profile-reducer/SET-STATUS';
+// -- //
 
 const initialState = {
 	postsData: [{
@@ -35,6 +38,12 @@ const profileReducer = (state = initialState, action) => {
 				postsData: [...state.postsData, newPost],
 			};
 		}
+		case DELETE_POST: {
+			return {
+				...state,
+				postsData: state.postsData.filter(el => el.id !== action.id)
+			}
+		}
 
 		case SET_PROFILE: {
 			return {
@@ -55,28 +64,32 @@ const profileReducer = (state = initialState, action) => {
 	}
 };
 
+// Actions Creators
 export const addPost = (postMessage) => ({ type: ADD_POST, postMessage });
+export const deletePost = (id) => ({ type: DELETE_POST, id });
+
 export const setProfile = (profile) => ({ type: SET_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
+// -- //
 
-export const getProfileThunk = userId => dispatch => {
-	profileAPI.getProfile(userId)
-		.then((response) => {
-			dispatch(setProfile(response));
-		}, (reject) => {
-			dispatch(setProfile('404'));
-		});
-	profileAPI.getStatus(userId)
-		.then(response => dispatch(setStatus(response)));
+// Thunks Creators
+export const getProfileThunk = userId => async dispatch => {
+	try {
+		const response = await profileAPI.getProfile(userId);
+		dispatch(setProfile(response));
+	} catch (error) {
+		dispatch(setProfile('404'));
+	}
+	const status = await profileAPI.getStatus(userId);
+	dispatch(setStatus(status));
 }
 
-export const updateStatusThunk = status => dispatch => {
-	profileAPI.updateStatus(status)
-		.then(response => {
-			if (response.resultCode === 0) {
-				dispatch(setStatus(status));
-			}
-		});
+export const updateStatusThunk = status => async (dispatch) => {
+	const response = await profileAPI.updateStatus(status);
+	if (response.resultCode === 0) {
+		dispatch(setStatus(status));
+	}
 }
+// -- //
 
 export default profileReducer;

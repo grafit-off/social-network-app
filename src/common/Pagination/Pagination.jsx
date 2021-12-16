@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './css/Pagination.module.css';
-import * as axios from 'axios';
 
 const Pagination = (props) => {
 	const pages = [];
@@ -20,7 +19,9 @@ const Pagination = (props) => {
 									onClick={() => {
 										props.onPageChange(page)
 									}}
-									className={props.currentPage === page ? styles.btn + ' ' + styles.active + ' btn-reset' : styles.btn + ' btn-reset'} aria-label={"Перейти к странице " + page}>{page}</button>
+									className={props.currentPage === page ?
+										styles.btn + ' ' + styles.active + ' btn-reset' :
+										styles.btn + ' btn-reset'} aria-label={"Перейти к странице " + page}>{page}</button>
 							</li>
 						)
 					})
@@ -36,7 +37,10 @@ const Pagination = (props) => {
 									onClick={() => {
 										props.onPageChange(page);
 									}}
-									className={props.currentPage === page ? styles.btn + ' ' + styles.active + ' btn-reset' : styles.btn + ' btn-reset'} aria-label={"Перейти к странице " + page}>{page}</button>
+									className={props.currentPage === page ?
+										styles.btn + ' ' + styles.active + ' btn-reset' :
+										styles.btn + ' btn-reset'}
+									aria-label={"Перейти к странице " + page}>{page}</button>
 							</li>
 						)
 					})

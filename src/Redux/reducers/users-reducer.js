@@ -1,12 +1,14 @@
 import { usersAPI } from "../../api/api";
+import { objectHelper } from "../../utils/object-helpers";
 
-const FOLLOW_USER = 'FOLLOW-USER';
-const UNFOLLOW_USER = 'UNFOLLOW-USER';
-const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
-const SET_FETCHING = 'SET-FETCHING';
-const SET_FOLLOW_REQUEST = 'SET_FOLLOW_REQUEST';
+// Action Types
+const TOGGLE_FOLLOW_USER = 'social-network/users-reducer/TOGGLE_FOLLOW_USER';
+const SET_USERS = 'social-network/users-reducer/SET-USERS';
+const SET_CURRENT_PAGE = 'social-network/users-reducer/SET-CURRENT-PAGE';
+const SET_TOTAL_USERS_COUNT = 'social-network/users-reducer/SET-TOTAL-USERS-COUNT';
+const SET_FETCHING = 'social-network/users-reducer/SET-FETCHING';
+const SET_FOLLOW_REQUEST = 'social-network/users-reducer/SET_FOLLOW_REQUEST';
+// -- //
 
 const initialState = {
 	usersData: [],
@@ -19,33 +21,10 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case FOLLOW_USER: {
+		case TOGGLE_FOLLOW_USER: {
 			return {
 				...state,
-				usersData: state.usersData.map((user) => {
-					if (user.id === action.userId) {
-						return {
-							...user,
-							followed: true
-						}
-					}
-					return user;
-				})
-			}
-		}
-
-		case UNFOLLOW_USER: {
-			return {
-				...state,
-				usersData: state.usersData.map((user) => {
-					if (user.id === action.userId) {
-						return {
-							...user,
-							followed: false
-						}
-					}
-					return user;
-				})
+				usersData: objectHelper(state.usersData, action.userId, 'id', { followed: action.follow })
 			}
 		}
 
@@ -91,51 +70,37 @@ const usersReducer = (state = initialState, action) => {
 	}
 };
 
-export const followUser = (userId) => ({ type: FOLLOW_USER, userId });
-export const unfollowUser = (userId) => ({ type: UNFOLLOW_USER, userId });
+// Actions Creators
+export const toggleFollowUser = (userId, follow) => ({ type: TOGGLE_FOLLOW_USER, userId, follow });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
 export const setFetching = (isFetching) => ({ type: SET_FETCHING, isFetching });
 export const setFollowRequest = (isFollowRequest, followRequestId) => ({ type: SET_FOLLOW_REQUEST, isFollowRequest, followRequestId });
+// -- //
 
+// Thunks Creators
 export const getUsersThunk = (page, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(setFetching(true));
 		dispatch(setCurrentPage(page));
-		usersAPI.getUsers(page, pageSize)
-			.then((response) => {
-				dispatch(setFetching(false));
-				dispatch(setUsers(response.items));
-				dispatch(setTotalUsersCount(response.totalCount));
-			})
+		let response = await usersAPI.getUsers(page, pageSize);
+		dispatch(setFetching(false));
+		dispatch(setUsers(response.items));
+		dispatch(setTotalUsersCount(response.totalCount));
 	}
 }
 
-export const followUserThunk = (userId) => {
-	return (dispatch) => {
+export const toggleFollowUserThunk = (userId, follow) => {
+	return async (dispatch) => {
 		dispatch(setFollowRequest(true, userId));
-		usersAPI.toggleFollow(userId, true)
-			.then((resolve) => {
-				dispatch(setFollowRequest(false, userId));
-				if (resolve.resultCode === 0) {
-					dispatch(followUser(userId));
-				}
-			}).catch((error) => console.log(error))
+		let response = await usersAPI.toggleFollow(userId, follow);
+		dispatch(setFollowRequest(false, userId));
+		if (response.resultCode === 0) {
+			dispatch(toggleFollowUser(userId, follow));
+		}
 	}
 }
-
-export const unfollowUserThunk = (userId) => {
-	return (dispatch) => {
-		dispatch(setFollowRequest(userId));
-		usersAPI.toggleFollow(userId, false)
-			.then((resolve) => {
-				dispatch(setFollowRequest(false, userId));
-				if (resolve.resultCode === 0) {
-					dispatch(unfollowUser(userId));
-				}
-			}).catch((error) => console.log(error))
-	}
-}
+// -- //
 
 export default usersReducer;

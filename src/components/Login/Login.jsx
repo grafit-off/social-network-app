@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginForm from './Constituents/LoginForm/loginForm';
+import LoginForm from './Constituents/LoginForm/LoginForm';
 import styles from './css/Login.module.css';
 
-const Login = (props) => {
+const Login = ({ login, captcha }) => {
 	return (
 		<section className={styles.section}>
 			<h1 className={styles.heading + ' text-reset'}>Вход</h1>
-			<LoginForm login={props.login} captcha={props.captcha} />
+			<LoginForm login={login} captcha={captcha} />
 		</section>
 	)
 }
