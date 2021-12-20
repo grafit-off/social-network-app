@@ -5,6 +5,8 @@ import {
 	Route,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+import store from './Redux/store';
+import { Provider } from 'react-redux';
 
 // Thunk
 import { initializeThunk } from './Redux/reducers/app-reducer'
@@ -74,4 +76,12 @@ const mstp = (state) => {
 	}
 }
 
-export default connect(mstp, { initializeThunk })(App);
+const AppContainer = connect(mstp, { initializeThunk })(App);
+
+export default () => {
+	return (
+		<Provider store={store}>
+			<AppContainer />
+		</Provider>
+	)
+}
